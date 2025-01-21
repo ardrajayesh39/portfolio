@@ -1,0 +1,40 @@
+/* src/components/Contact.css */
+.container {
+    background-color: #ffffff; /* White background */
+    color: #4b3c31; /* Dark brown text */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  h2 {
+    color: #f7c6a3; /* Light skin-tone color */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border: 1px solid #f7c6a3; /* Light skin-tone border */
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #f7c6a3; /* Light skin-tone color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4b3c31; /* Dark brown on hover */
+    color: white;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
