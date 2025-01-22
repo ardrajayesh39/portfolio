@@ -1,0 +1,48 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* App Container */
+.app-container {
+  background-color: #f8f9fa; /* Light background */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #e8ebf0 !important; /* Primary blue */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.navbar .nav-link {
+  font-size: 1.2rem;
+  color: white !important;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ff6347 !important; /* Highlight color */
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  background-color: #ffffff;
+  min-height: calc(100vh - 120px); /* Ensure the main content takes the full remaining space */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #343a40; /* Dark gray */
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}

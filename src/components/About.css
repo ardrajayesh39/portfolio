@@ -1,0 +1,31 @@
+/* src/components/About.css */
+.container {
+    background-color: #ffffff; /* White background */
+    color: #4b3c31; /* Dark brown text */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 800px;
+    margin: 30px auto;
+  }
+  
+  h2 {
+    color: #f7c6a3; /* Light skin-tone color */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  }
+  
