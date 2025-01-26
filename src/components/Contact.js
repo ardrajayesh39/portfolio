@@ -1,42 +1,61 @@
-// src/components/Contact.js
-import React, { useState } from 'react';
-import './Contact.css'; // Import Contact.css
+import React from 'react';
+import './Contact.css';
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhone } from 'react-icons/fa'; // Import Font Awesome icons
+import Lottie from 'lottie-react';
+import animationData from '../assets/animations/contact-animation.json';
 
 function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+  const email = "ardrajayesh39@gmail.com";
+  const subject = "Regarding My Portfolio";
+  const body = "Hello, I have some questions regarding your portfolio...";
 
   return (
-    <div className="container mt-5">
-      <h2>Contact Me</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" className="form-control" value={formData.name} onChange={handleChange} required />
+    <section id="contact">
+      <div className="container py-5">
+        <h2>CONTACT ME</h2>
+        <p>Feel free to reach out to me through any of the following platforms:</p>
+        <ul className="contact-list">
+          <li>
+            <FaEnvelope className="icon" />
+            <a href={`mailto:${email}`}> Email: {email}</a>
+          </li>
+          <li>
+            <FaLinkedin className="icon" />
+            <a href="https://www.linkedin.com/in/ardra-jayesh" target="_blank" rel="noopener noreferrer">
+              LinkedIn: https://www.linkedin.com/in/ardra-jayesh
+            </a>
+          </li>
+          <li>
+            <FaGithub className="icon" />
+            <a href="https://github.com/ardrajayesh39" target="_blank" rel="noopener noreferrer">
+              GitHub: https://github.com/ardrajayesh39
+            </a>
+          </li>
+          <li>
+            <FaPhone className="icon" /> Phone: +91 9495262774
+          </li>
+        </ul>
+
+        {/* Positioning the animation next to "Send Me an Email" */}
+        <div className="email-section">
+          <Lottie animationData={animationData} loop={true} className="animated-image" />
+          <h3>Send Me an Email</h3>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" className="form-control" value={formData.email} onChange={handleChange} required />
+
+        {/* Button to send an email */}
+        <div className="button-container">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            }}
+          >
+            Click to Send a Message
+          </button>
         </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" className="form-control" rows="4" value={formData.message} onChange={handleChange} required />
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 }
 
 export default Contact;
-
-

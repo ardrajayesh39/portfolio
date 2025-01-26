@@ -1,70 +1,61 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './components/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/Navbar';
 import About from './components/About';
-import Education from './components/Education';
-import Contact from './components/Contact';
 import Projects from './components/Projects';
-//import './App.css'; // Import the CSS file for styling
+import Contact from './components/Contact';
+import Education from './components/Education';
+import Skills from './components/Skills'; // Import the Skills page
+
+// Import the profile image
+import profileImage from './assets/images/profile.jpg'; // Correct path to the profile image
+
+// Import CSS and other assets
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="app-container d-flex flex-column min-vh-100">
+      <div className="App">
         {/* Navbar */}
-        {/* <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg">
-          <div className="container">
-            <a className="navbar-brand fw-bold" href="/">My Portfolio</a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/about">About</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/education">Education</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/projects">Projects</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/contact">Contact</Link>
-                </li>
-              </ul>
+        <Navbar />
+
+        {/* Page Content */}
+        <div className="page-container">
+          {/* Left Section: Portfolio and Intro */}
+          <div className="left-section">
+            <h1 className="text-center text-dark">Portfolio</h1>
+            <p className="text-center text-dark">
+              Welcome to my portfolio! You can navigate through the sections above.
+            </p>
+            {/* Profile Image */}
+            <div className="profile-container">
+              <img
+                src={profileImage} // Use the imported image
+                alt="Profile"
+                className="profile-img"
+              />
             </div>
           </div>
-        </nav> */}
 
-        {/* Main Content */}
-        {/* <main className="flex-grow-1"> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        {/* </main> */}
-
-        {/* Footer */}
-        <footer className="bg-dark text-center text-white py-3">
-          <div className="container">
-            <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+          {/* Decorative Background */}
+          <div className="decorative-bg">
+            <img src="https://via.placeholder.com/150" alt="" />
           </div>
-        </footer>
+
+          {/* Right Section: About, Projects, Education, Contact, Skills */}
+          <div className="right-section">
+            {/* Define Routes */}
+            <Routes>
+              <Route path="/" element={<About />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </Router>
   );

@@ -1,24 +1,93 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Portfolio</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/projects">Projects</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    );
-};
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faTasks, faGraduationCap, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faBrain } from '@fortawesome/free-solid-svg-icons/faBrain';
+import { Navbar, Nav, Container } from 'react-bootstrap'; // Keep only Navbar, Nav, and Container
 
-export default Navbar;
+function NavbarComponent() {
+  return (
+    <Navbar expand="lg" bg="light" variant="light" className="shadow">
+      <Container>
+        {/* Brand Logo */}
+        <Navbar.Brand href="/">My Portfolio</Navbar.Brand>
+
+        {/* Navbar Toggle Button (for mobile) */}
+        <Navbar.Toggle aria-controls="navbar-nav" />
+
+        {/* Navbar Collapse (for mobile and large screens) */}
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto">
+            {/* Home Link */}
+            <Nav.Item>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active text-primary fw-bold' : 'nav-link'
+                }
+                to="/"
+              >
+                <FontAwesomeIcon icon={faHome} className="me-1" />
+                HOME
+              </NavLink>
+            </Nav.Item>
+
+            {/* Skills Link */}
+            <Nav.Item>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active text-primary fw-bold' : 'nav-link'
+                }
+                to="/skills"
+              >
+                <FontAwesomeIcon icon={faBrain} className="me-1" />
+                SKILLS
+              </NavLink>
+            </Nav.Item>
+
+            {/* Projects Link */}
+            <Nav.Item>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active text-primary fw-bold' : 'nav-link'
+                }
+                to="/projects"
+              >
+                <FontAwesomeIcon icon={faTasks} className="me-1" />
+                PROJECTS
+              </NavLink>
+            </Nav.Item>
+
+            {/* Education Link */}
+            <Nav.Item>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active text-primary fw-bold' : 'nav-link'
+                }
+                to="/education"
+              >
+                <FontAwesomeIcon icon={faGraduationCap} className="me-1" />
+                EDUCATION
+              </NavLink>
+            </Nav.Item>
+
+            {/* Contact Link */}
+            <Nav.Item>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active text-primary fw-bold' : 'nav-link'
+                }
+                to="/contact"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="me-1" />
+                CONTACT
+              </NavLink>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+export default NavbarComponent;
